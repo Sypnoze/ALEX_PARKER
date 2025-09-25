@@ -2,6 +2,10 @@
 
 // PARAMS
 
+// Initialisation des zones dynamiques
+$title = '';
+$content = '';
+
 // Paramètres de connexion à la DB 
 
 define('DB_HOST', '127.0.0.1');
