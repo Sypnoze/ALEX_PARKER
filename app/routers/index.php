@@ -2,13 +2,24 @@
 
 // ROUTE PRINCIPAL
 
+// ROUTE D'AJOUT D'UN POST: affichage du formulaire
+// 		PATTERN: /posts/add/form.html
+// 		CTRL: ???
+// 		ACTION: ???
+// 		TITLE: Alex Parker - Add a post
+if (isset($_GET['form'])) :
+
+	include_once '../app/controllers/pagesController.php';
+	\App\Controllers\PagesController\formAction($conn, ['form']);
+
+
 // ROUTE DU DETAIL D'UN POST
 // 		PATTERN: /posts/id/slug-du-post.html
 // 		URL: ???
 // 		CTRL: postsController
 // 		ACTION: showAction
 // 		TITLE: Alex Parker - Title du post
-if (isset($_GET['id'])):
+elseif (isset($_GET['id'])):
 	include_once '../app/controllers/pagesController.php';
 	\App\Controllers\PagesController\showAction($conn, $_GET['id']);
 

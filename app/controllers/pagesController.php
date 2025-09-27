@@ -37,3 +37,15 @@ function showAction(\PDO $conn, int $id)
     include '../app/views/posts/show.php';
     $content = ob_get_clean();
 }
+
+function formAction(\PDO $conn)
+{
+    include_once '../app/models/CategoriesModel.php';
+    $categories = \App\Models\CategoriesModel\findAll($conn);
+    global $content, $title;
+
+    $title = "Alex Parker - Add a post";
+    ob_start();
+    include '../app/views/posts/form.php';
+    $content = ob_get_clean();
+}
