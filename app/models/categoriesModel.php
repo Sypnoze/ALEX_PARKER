@@ -9,7 +9,7 @@ use \PDO;
 
 function findAll(PDO $conn): array
 {
-    $sql = "SELECT *
+    $sql = "SELECT id, name AS category_name
             FROM categories
             ORDER BY name ASC;";
     $rs = $conn->query($sql);
