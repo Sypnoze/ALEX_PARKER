@@ -2,9 +2,11 @@
 
 namespace App\Controllers\PagesController;
 
+use App\Models\PostsModel;
 use \PDO;
 
-function homeAction(PDO $conn)
+
+function indexAction(PDO $conn)
 {
     // Je vais demander des donées aux modèles
 
@@ -20,5 +22,18 @@ function homeAction(PDO $conn)
     $title = "Alex Parker - Blog";
     ob_start();
     include '../app/views/posts/index.php';
+    $content = ob_get_clean();
+}
+
+
+function showAction(\PDO $conn, int $id)
+{
+    include_once '../app/models/postsModel.php';
+    $post = PostsModel\findOneById($conn, $id);
+
+    global $content, $title;
+    $title = $post['id'];
+    ob_start();
+    include '../app/views/posts/show.php';
     $content = ob_get_clean();
 }

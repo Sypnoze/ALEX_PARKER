@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Initialisation
 
 // 1 Charger les params
@@ -12,3 +12,4 @@ require_once '../core/connection.php';
 require_once '../core/helpers.php';
 
 // 4 charger les constantes 
+require_once '../core/constantes.php';

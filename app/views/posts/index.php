@@ -10,20 +10,21 @@
         <div class="col-md-12 blog-post row">
             <?php foreach ($posts as $post): ?>
                 <div class="post-title">
-                    <a href="single.html">
+                    <a href="?posts=show&id=<?php echo $post['id'] ?>">
                         <h1>
                             <?php echo $post['title'] ?>
                         </h1>
                     </a>
                 </div>
                 <div class="post-info">
-                    <span><?php echo $post['created_at'] ?></span> | <span>Life style</span>
+                    <span><?php $date = new DateTime($post['created_at']);
+                            echo $date->format('d/m/Y'); ?></span> | <span><?php echo $post['category_name']; ?></span>
                 </div>
                 <p>
                     <?php echo \Core\Helpers\truncate($post['text']) ?>
                 </p>
                 <a
-                    href="single.html"
+                    href="?posts=show&id=<?php echo $post['id'] ?>"
                     class="
                         button button-style button-anim
                         fa fa-long-arrow-right

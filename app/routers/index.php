@@ -2,21 +2,26 @@
 
 // ROUTE PRINCIPAL
 
+// ROUTE DU DETAIL D'UN POST
+// 		PATTERN: /posts/id/slug-du-post.html
+// 		URL: ???
+// 		CTRL: postsController
+// 		ACTION: showAction
+// 		TITLE: Alex Parker - Title du post
+if (isset($_GET['id'])):
+	include_once '../app/controllers/pagesController.php';
+	\App\Controllers\PagesController\showAction($conn, $_GET['id']);
+
 // ROUTE PAR DEFAUT: liste des posts
 // 	PATTERN: /
 // 	CTRL: pagesController
-// 	ACTION: homeAction
+// 	ACTION: indexAction
 // 	TITLE: Alex Parker - Blog
-
-include_once '../app/controllers/pagesController.php';
-\App\Controllers\PagesController\homeAction($conn);
-
-	// ROUTE DU DETAIL D'UN POST
-	// 		PATTERN: /posts/id/slug-du-post.html
-	// 		URL: ???
-	// 		CTRL: ???
-	// 		ACTION: ???
-	// 		TITLE: Alex Parker - Title du post
+else :
+	include_once '../app/controllers/pagesController.php';
+	\App\Controllers\PagesController\indexAction($conn);
+endif;
+	
 
 	// ROUTE D'AJOUT D'UN POST: affichage du formulaire
 	// 		PATTERN: /posts/add/form.html
