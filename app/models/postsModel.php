@@ -19,7 +19,7 @@ function findOneById(\PDO $conn, int $id): array
 {
     $sql = "SELECT p.*, c.name AS category_name
             FROM posts p
-            LEFT JOIN categories c ON p.category_id = c.id
+            JOIN categories c ON p.category_id = c.id
             WHERE p.id = :id;";
     $rs = $conn->prepare($sql);
     $rs->bindValue(':id', $id, PDO::PARAM_INT);

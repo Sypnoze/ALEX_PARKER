@@ -9,8 +9,8 @@
 // 		TITLE: Alex Parker - Add a post
 if (isset($_GET['form'])) :
 
-	include_once '../app/controllers/pagesController.php';
-	\App\Controllers\PagesController\formAction($conn, ['form']);
+	include_once '../app/routers/form.php';
+
 
 
 // ROUTE DU DETAIL D'UN POST

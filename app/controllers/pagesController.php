@@ -26,7 +26,7 @@ function indexAction(PDO $conn)
 }
 
 
-function showAction(\PDO $conn, int $id)
+function showAction(PDO $conn, int $id)
 {
     include_once '../app/models/postsModel.php';
     $post = PostsModel\findOneById($conn, $id);
@@ -38,7 +38,7 @@ function showAction(\PDO $conn, int $id)
     $content = ob_get_clean();
 }
 
-function formAction(\PDO $conn)
+function formAction(PDO $conn)
 {
     include_once '../app/models/CategoriesModel.php';
     $categories = \App\Models\CategoriesModel\findAll($conn);
